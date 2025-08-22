@@ -1,7 +1,8 @@
 "use client"
 import React, { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, animate } from 'framer-motion'
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
+import { BookingDialog } from '@/components/booking-dialog'
 
 interface PricingProps {
     title?: string;
@@ -64,10 +65,12 @@ const PricingHeader = ({ title }: { title: string }) => (
 // Pricing Card Component
 const PricingCard = ({
     plan,
-    index
+    index,
+    onBookingClick
 }: {
     plan: PricingPlan;
-    index: number
+    index: number;
+    onBookingClick: (plan: PricingPlan) => void;
 }) => {
     const cardRef = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(0);
@@ -188,6 +191,7 @@ const PricingCard = ({
 
             {/* CTA Button */}
             <motion.button
+                onClick={() => onBookingClick(plan)}
                 className={cn(
                     `w-full py-3 rounded-lg text-white font-black text-sm
                     border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]
@@ -212,8 +216,22 @@ const PricingCard = ({
 
 // Main Container Component
 export const PricingContainer = ({ title = "Pricing Plans", plans, className = "" }: PricingProps) => {
+    const [isBookingOpen, setIsBookingOpen] = useState(false)
+    const [selectedPackage, setSelectedPackage] = useState<PricingPlan | null>(null)
+
+    const handleBookingClick = (plan: PricingPlan) => {
+        setSelectedPackage(plan)
+        setIsBookingOpen(true)
+    }
+
     return (
-        <div className={`min-h-screen bg-transparent p-4 sm:p-6 lg:p-8 relative overflow-hidden rounded-[12px] ${className}`}>
+        <>
+            <BookingDialog 
+                isOpen={isBookingOpen}
+                onClose={() => setIsBookingOpen(false)}
+                selectedPackage={selectedPackage || undefined}
+            />
+            <div className={`min-h-screen bg-transparent p-4 sm:p-6 lg:p-8 relative overflow-hidden rounded-[12px] ${className}`}>
             <PricingHeader title={title} />
 
             <div className="w-[100%] max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
@@ -222,9 +240,11 @@ export const PricingContainer = ({ title = "Pricing Plans", plans, className = "
                         key={plan.name}
                         plan={plan}
                         index={index}
+                        onBookingClick={handleBookingClick}
                     />
                 ))}
             </div>
-        </div>
+            </div>
+        </>
     );
 }; 

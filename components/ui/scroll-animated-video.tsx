@@ -1,6 +1,7 @@
 "use client"
 import type React from "react"
-import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef } from "react"
+import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef, useState } from "react"
+import { BookingDialog } from "@/components/booking-dialog"
 
 /* =========================
    Types
@@ -131,6 +132,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
   const overlayRef = useRef<HTMLDivElement | null>(null)
   const overlayContentRef = useRef<HTMLDivElement | null>(null)
 
+  const [isBookingOpen, setIsBookingOpen] = useState(false)
   const isClient = typeof window !== "undefined"
 
   // Inline CSS variables for tuning (non-theme)
@@ -396,16 +398,26 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
   }
 
   return (
-    <div ref={rootRef} className={["hsv-root", className].filter(Boolean).join(" ")} style={{ ...cssVars, ...style }}>
-      
+    <>
+      <BookingDialog 
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+      />
+      <div ref={rootRef} className={["hsv-root", className].filter(Boolean).join(" ")} style={{ ...cssVars, ...style }}>
+        
 
-      {/* Headline/hero area */}
+        {/* Headline/hero area */}
       <div className="hsv-container" ref={headlineRef}>
         <div className="hsv-headline">
           <h1 className="hsv-title">{title}</h1>
           {subtitle ? <h2 className="hsv-subtitle">{subtitle}</h2> : null}
           <div className="hsv-cta">
-            <button className="hsv-cta-button">Prenota l'esperienza</button>
+            <button 
+              className="hsv-cta-button"
+              onClick={() => setIsBookingOpen(true)}
+            >
+              Prenota l'esperienza
+            </button>
           </div>
           {credits ? <div className="hsv-credits">{credits}</div> : null}
         </div>
@@ -675,7 +687,8 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           .hsv-overlay-content { max-width: 40ch; }
         }
       `}</style>
-    </div>
+      </div>
+    </>
   )
 }
 
