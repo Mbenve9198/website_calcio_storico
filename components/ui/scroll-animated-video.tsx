@@ -408,6 +408,15 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
 
         {/* Headline/hero area */}
       <div className="hsv-container" ref={headlineRef}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src="/calciostorico.mp4" type="video/mp4" />
+        </video>
         <div className="hsv-headline">
           <h1 className="hsv-title">
             <span className="text-black">Diventa Parte Della </span>
@@ -503,23 +512,25 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           content: '';
           position: absolute;
           inset: 0;
-          background-image: url('/header_background.jpeg');
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          opacity: 0.4;
           z-index: 1;
+          opacity: 0.4;
           mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
           -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
         }
-        
-        @media (max-width: 768px) {
-          .hsv-container::before {
-            background-image: url('/header_background_mobile.jpg');
-            background-position: center;
-            background-size: cover;
-          }
+        .hsv-container video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.4;
+          z-index: 1;
+          mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
         }
+        
+
         .hsv-container::after {
           content: '';
           position: absolute;
