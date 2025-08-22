@@ -79,7 +79,7 @@ export function QuartieriSection() {
       {/* Istruzioni per l'utente */}
       <div className="text-center mt-8 px-4">
         <p className="text-neutral-600 dark:text-neutral-400 text-sm md:text-base">
-          Trascina per ruotare il carosello e clicca su uno stemma per scoprire la storia del quartiere
+          Il carosello ruota automaticamente. Trascina per controllarlo manualmente e clicca su uno stemma per scoprire la storia del quartiere.
         </p>
       </div>
 

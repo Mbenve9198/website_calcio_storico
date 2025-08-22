@@ -84,6 +84,27 @@ const Carousel = memo(
       rotation,
       (value) => `rotate3d(0, 1, 0, ${value}deg)`
     )
+    const [isDragging, setIsDragging] = useState(false)
+
+    // Auto-scroll effect
+    useEffect(() => {
+      let animationId: number
+      
+      const autoRotate = () => {
+        if (!isDragging && isCarouselActive) {
+          rotation.set(rotation.get() + 0.2) // Velocità lenta auto-scroll
+        }
+        animationId = requestAnimationFrame(autoRotate)
+      }
+      
+      animationId = requestAnimationFrame(autoRotate)
+      
+      return () => {
+        if (animationId) {
+          cancelAnimationFrame(animationId)
+        }
+      }
+    }, [isDragging, isCarouselActive, rotation])
 
     return (
       <div
@@ -103,22 +124,25 @@ const Carousel = memo(
             width: cylinderWidth,
             transformStyle: "preserve-3d",
           }}
+          onDragStart={() => setIsDragging(true)}
           onDrag={(_, info) =>
             isCarouselActive &&
             rotation.set(rotation.get() + info.offset.x * 0.05)
           }
-          onDragEnd={(_, info) =>
-            isCarouselActive &&
-            controls.start({
-              rotateY: rotation.get() + info.velocity.x * 0.05,
-              transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 30,
-                mass: 0.1,
-              },
-            })
-          }
+          onDragEnd={(_, info) => {
+            setIsDragging(false)
+            if (isCarouselActive) {
+              controls.start({
+                rotateY: rotation.get() + info.velocity.x * 0.05,
+                transition: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 30,
+                  mass: 0.1,
+                },
+              })
+            }
+          }}
           animate={controls}
         >
           {cards.map((imgUrl, i) => (
