@@ -502,10 +502,19 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          opacity: 0.12;
-          z-index: -2;
-          mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 85%);
-          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 85%);
+          opacity: 0.25;
+          z-index: 1;
+          mask: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 90%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 90%);
+        }
+        .hsv-container::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.15);
+          z-index: 0;
+          mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 90%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 90%);
         }
 
         .hsv-headline { 
@@ -513,14 +522,14 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           transform-style: preserve-3d;
           max-width: min(100%, 1100px);
           position: relative;
-          z-index: 2;
+          z-index: 10;
         }
         .hsv-headline::before {
           content: '';
           position: absolute;
           inset: -20px;
-          background: rgba(248, 249, 250, 0.1);
-          backdrop-filter: blur(2px);
+          background: rgba(248, 249, 250, 0.15);
+          backdrop-filter: blur(3px);
           border-radius: 20px;
           z-index: -1;
         }
