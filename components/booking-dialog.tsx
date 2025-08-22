@@ -1,8 +1,9 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Calendar, Users, Package, ShoppingCart, Plus, Minus } from "lucide-react"
+import { X, CalendarIcon, Users, Package, ShoppingCart, Plus, Minus } from "lucide-react"
 import { useState, useEffect } from "react"
+import { Calendar } from "@/components/ui/calendar"
 
 interface BookingDialogProps {
   isOpen: boolean
@@ -16,7 +17,7 @@ interface BookingDialogProps {
 }
 
 interface BookingData {
-  selectedDate: string
+  selectedDate: Date | undefined
   numberOfPeople: number
   selectedPackage: string
   totalPrice: number
@@ -40,7 +41,7 @@ const PACKAGES = [
 export function BookingDialog({ isOpen, onClose, selectedPackage }: BookingDialogProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const [bookingData, setBookingData] = useState<BookingData>({
-    selectedDate: "",
+    selectedDate: undefined,
     numberOfPeople: 2,
     selectedPackage: selectedPackage?.name || PACKAGES[0].name,
     totalPrice: 0
@@ -84,16 +85,7 @@ export function BookingDialog({ isOpen, onClose, selectedPackage }: BookingDialo
     if (currentStep > 1) setCurrentStep(currentStep - 1)
   }
 
-  const generateDates = () => {
-    const dates = []
-    const today = new Date()
-    for (let i = 1; i <= 30; i++) {
-      const date = new Date(today)
-      date.setDate(today.getDate() + i)
-      dates.push(date.toISOString().split('T')[0])
-    }
-    return dates
-  }
+
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -111,27 +103,19 @@ export function BookingDialog({ isOpen, onClose, selectedPackage }: BookingDialo
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <Calendar className="w-12 h-12 mx-auto mb-4 text-blue-600" />
+              <CalendarIcon className="w-12 h-12 mx-auto mb-4 text-blue-600" />
               <h3 className="text-xl font-black text-slate-800 mb-2">Seleziona la Data</h3>
               <p className="text-gray-600">Scegli quando vuoi vivere l'esperienza</p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-64 overflow-y-auto">
-              {generateDates().map((date) => (
-                <motion.button
-                  key={date}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setBookingData(prev => ({ ...prev, selectedDate: date }))}
-                  className={`p-3 rounded-lg border-2 border-black font-bold text-sm transition-all
-                    ${bookingData.selectedDate === date 
-                      ? 'bg-blue-600 text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]' 
-                      : 'bg-white text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)]'
-                    }`}
-                >
-                  {formatDate(date).split(' ').slice(0, 2).join(' ')}
-                </motion.button>
-              ))}
+            <div className="flex justify-center">
+              <Calendar
+                mode="single"
+                selected={bookingData.selectedDate}
+                onSelect={(date) => setBookingData(prev => ({ ...prev, selectedDate: date }))}
+                disabled={(date) => date < new Date()}
+                className="rounded-lg border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] p-4 bg-white"
+              />
             </div>
           </div>
         )
@@ -239,7 +223,9 @@ export function BookingDialog({ isOpen, onClose, selectedPackage }: BookingDialo
               <div className="space-y-4">
                 <div className="flex justify-between items-center border-b-2 border-gray-200 pb-3">
                   <span className="font-bold text-gray-700">Data:</span>
-                  <span className="font-black text-slate-800">{formatDate(bookingData.selectedDate)}</span>
+                  <span className="font-black text-slate-800">
+                    {bookingData.selectedDate ? formatDate(bookingData.selectedDate.toISOString().split('T')[0]) : 'Nessuna data selezionata'}
+                  </span>
                 </div>
                 
                 <div className="flex justify-between items-center border-b-2 border-gray-200 pb-3">
