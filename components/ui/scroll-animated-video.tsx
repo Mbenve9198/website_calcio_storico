@@ -415,7 +415,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           playsInline
           preload="metadata"
         >
-          <source src="/calciostorico.mp4" type="video/mp4" />
+          <source src="https://ik.imagekit.io/menuchat/calciostorico.mp4" type="video/mp4" />
         </video>
         <div className="hsv-headline">
           <h1 className="hsv-title">
