@@ -411,9 +411,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         <div className="hsv-headline">
           <h1 className="hsv-title">
             <span className="text-black">Diventa Parte Della </span>
-            <span className="font-black text-transparent" style={{
-              WebkitTextStroke: '3px #8b5cf6'
-            }}>
+            <span className="text-black font-black">
               Leggenda
             </span>
           </h1>
