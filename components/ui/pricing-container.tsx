@@ -245,9 +245,8 @@ const PricingCard = ({
 // Main Container Component
 export const PricingContainer = ({ title = "Pricing Plans", plans, className = "" }: PricingProps) => {
     return (
-        <div className={`min-h-screen bg-[#f0f0f0] p-4 sm:p-6 lg:p-8 relative overflow-hidden rounded-[12px] ${className}`}>
+        <div className={`min-h-screen bg-transparent p-4 sm:p-6 lg:p-8 relative overflow-hidden rounded-[12px] ${className}`}>
             <PricingHeader title={title} />
-            <BackgroundEffects />
 
             <div className="w-[100%] max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
                 {plans.map((plan, index) => (

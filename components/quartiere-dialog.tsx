@@ -52,7 +52,7 @@ export function QuartiereDialog({ quartiere, isOpen, onClose }: QuartiereDialogP
                 bounce: 0.3
               }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-2xl max-h-[90vh] bg-[#f0f0f0] rounded-2xl border-4 border-black 
+              className="w-full max-w-2xl max-h-[90vh] bg-[#f8f9fa] rounded-2xl border-4 border-black 
                          shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] overflow-hidden relative"
             >
               {/* Header con Gradient */}

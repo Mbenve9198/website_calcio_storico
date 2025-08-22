@@ -58,7 +58,7 @@ export function QuartieriSection() {
   }
 
   return (
-    <div className="w-full bg-[#f0f0f0] font-sans py-16 md:py-24 lg:py-32">
+    <div className="w-full bg-transparent font-sans py-16 md:py-24 lg:py-32">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 text-center mb-16">
         <div className="inline-block mb-8">
