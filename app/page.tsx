@@ -1,4 +1,5 @@
 import HeroScrollVideo from "@/components/ui/scroll-animated-video"
+import { CalcioStoricoTimeline } from "@/components/calcio-storico-timeline"
 
 export default function Home() {
   return (
@@ -14,10 +15,7 @@ export default function Home() {
           paragraphs: ["A Firenze, dal tardo medioevo, i nobili cavalieri scendono in campo in sfarzose livree colorate. Non è una semplice partita, ma la rievocazione storica della sfida lanciata ai nemici che assediavano la città il 17 febbraio 1530. Un gioco rude, senza compromessi, praticato da fiorentini indomiti e orgogliosi per mostrare al mondo il loro valore"],
         }}
       />
-      <section style={{ minHeight: "150vh", padding: "2rem", textAlign: "center" }}>
-        <h2>Additional Content</h2>
-        <p>Scroll up to see the video animation in action.</p>
-      </section>
+      <CalcioStoricoTimeline />
     </main>
   )
 }
