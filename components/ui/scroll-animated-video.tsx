@@ -480,12 +480,37 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           padding-left: clamp(24px, 6vw, 48px);
           padding-right: clamp(24px, 6vw, 48px);
           perspective: 900px;
+          position: relative;
+        }
+        .hsv-container::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url('/header_background.jpeg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.12;
+          z-index: -2;
+          mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 85%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 85%);
         }
 
         .hsv-headline { 
           text-align: center;
           transform-style: preserve-3d;
           max-width: min(100%, 1100px);
+          position: relative;
+          z-index: 2;
+        }
+        .hsv-headline::before {
+          content: '';
+          position: absolute;
+          inset: -20px;
+          background: rgba(248, 249, 250, 0.1);
+          backdrop-filter: blur(2px);
+          border-radius: 20px;
+          z-index: -1;
         }
         .hsv-headline > * {
           transform-style: preserve-3d;
