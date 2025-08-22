@@ -202,7 +202,7 @@ function ThreeDPhotoCarousel({
   }, [cards])
 
   const handleClick = (imgUrl: string, index: number) => {
-    setActiveImg(imgUrl)
+    // Apri solo il dialog del quartiere, non l'overlay dell'immagine
     setIsCarouselActive(false)
     controls.stop()
     

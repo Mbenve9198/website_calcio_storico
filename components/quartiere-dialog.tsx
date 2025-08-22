@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import { QuartiereData } from "@/components/ui/3d-carousel"
+import { useEffect } from "react"
 
 interface QuartiereDialogProps {
   quartiere: QuartiereData | null
@@ -11,6 +12,20 @@ interface QuartiereDialogProps {
 }
 
 export function QuartiereDialog({ quartiere, isOpen, onClose }: QuartiereDialogProps) {
+  // Blocca lo scroll della pagina quando il dialog è aperto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    // Cleanup quando il componente viene smontato
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   if (!quartiere) return null
 
   const getQuartiereColor = (nome: string) => {
@@ -94,8 +109,13 @@ export function QuartiereDialog({ quartiere, isOpen, onClose }: QuartiereDialogP
               </div>
 
               {/* Scrollable Content */}
-              <div className="max-h-[calc(90vh-200px)] overflow-y-auto overflow-x-hidden p-6 space-y-6"
-                   style={{ WebkitOverflowScrolling: 'touch' }}>
+              <div className="max-h-[calc(90vh-200px)] overflow-y-auto overflow-x-hidden p-6 space-y-6 
+                            scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
+                   style={{ 
+                     WebkitOverflowScrolling: 'touch',
+                     scrollbarWidth: 'thin',
+                     scrollbarColor: '#9ca3af #f3f4f6'
+                   }}>
                 
                 {/* Immagine */}
                 <motion.div
