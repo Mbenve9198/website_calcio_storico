@@ -61,13 +61,13 @@ export function QuartieriSection() {
   }
 
   return (
-    <div className="w-full bg-white dark:bg-neutral-950 font-sans py-20">
+    <div className="w-full bg-white dark:bg-neutral-950 font-sans py-16 md:py-24 lg:py-32">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 text-center mb-16">
-        <h1 className="quartieri-title">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-black dark:text-white leading-tight tracking-tight drop-shadow-lg">
           I Quartieri del Calcio Storico
         </h1>
-        <h2 className="quartieri-subtitle">
+        <h2 className="text-base md:text-lg lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed tracking-wide">
           Il torneo moderno vede sfidarsi i quattro quartieri storici di Firenze, ognuno con i propri colori e il proprio simbolo.
         </h2>
       </div>
@@ -90,7 +90,7 @@ export function QuartieriSection() {
 
       {/* Dialog per informazioni quartiere */}
       <Dialog open={!!selectedQuartiere} onOpenChange={closeDialog}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4 md:mx-auto">
           <DialogHeader className="relative">
             <button
               onClick={closeDialog}
@@ -152,30 +152,7 @@ export function QuartieriSection() {
         </DialogContent>
       </Dialog>
 
-      <style jsx>{`
-        .quartieri-title {
-          margin: 0 0 1.5rem 0;
-          font-size: clamp(36px, 8vw, 96px);
-          line-height: 0.95;
-          font-weight: 900;
-          letter-spacing: -0.03em;
-          text-wrap: balance;
-          color: var(--foreground);
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-          text-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .quartieri-subtitle {
-          margin: 0 0 2rem 0;
-          font-size: clamp(16px, 3vw, 24px);
-          font-weight: 600;
-          letter-spacing: 0.02em;
-          color: var(--muted-foreground);
-          max-width: 800px;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.6;
-        }
-      `}</style>
+
     </div>
   )
 } 
