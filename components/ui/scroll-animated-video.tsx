@@ -409,7 +409,12 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         {/* Headline/hero area */}
       <div className="hsv-container" ref={headlineRef}>
         <div className="hsv-headline">
-          <h1 className="hsv-title">{title}</h1>
+          <h1 className="hsv-title">
+            <span className="text-black">Diventa Parte Della </span>
+            <span className="bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-800 bg-clip-text text-transparent font-black">
+              Leggenda
+            </span>
+          </h1>
           {subtitle ? <h2 className="hsv-subtitle">{subtitle}</h2> : null}
           <div className="hsv-cta">
             <button 
@@ -538,8 +543,14 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           letter-spacing: -0.03em;
           text-wrap: balance;
           color: var(--text);
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-          text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+          filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+          text-shadow: 
+            0 2px 4px rgba(0,0,0,0.3),
+            0 4px 8px rgba(0,0,0,0.2),
+            0 1px 0px rgba(255,255,255,0.8);
+        }
+        .hsv-title span {
+          display: inline-block;
         }
         .hsv-subtitle {
           margin: 0 0 1.25rem 0;
