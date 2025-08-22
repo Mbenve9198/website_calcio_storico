@@ -15,14 +15,21 @@ export function QuartiereDialog({ quartiere, isOpen, onClose }: QuartiereDialogP
   // Blocca lo scroll della pagina quando il dialog è aperto
   useEffect(() => {
     if (isOpen) {
+      // Metodo più robusto per bloccare lo scroll
+      const scrollY = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.width = '100%'
       document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
-    
-    // Cleanup quando il componente viene smontato
-    return () => {
-      document.body.style.overflow = 'unset'
+      
+      return () => {
+        // Ripristina la posizione quando si chiude
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.width = ''
+        document.body.style.overflow = ''
+        window.scrollTo(0, scrollY)
+      }
     }
   }, [isOpen])
 
@@ -54,7 +61,9 @@ export function QuartiereDialog({ quartiere, isOpen, onClose }: QuartiereDialogP
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onWheel={(e) => e.preventDefault()}
+            onTouchMove={(e) => e.preventDefault()}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-hidden"
           >
             {/* Dialog Container */}
             <motion.div
@@ -67,6 +76,8 @@ export function QuartiereDialog({ quartiere, isOpen, onClose }: QuartiereDialogP
                 bounce: 0.3
               }}
               onClick={(e) => e.stopPropagation()}
+              onWheel={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
               className="w-full max-w-2xl max-h-[90vh] bg-[#f8f9fa] rounded-2xl border-4 border-black 
                          shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] overflow-hidden relative"
             >
