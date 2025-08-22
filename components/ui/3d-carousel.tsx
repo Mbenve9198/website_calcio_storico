@@ -250,7 +250,7 @@ function ThreeDPhotoCarousel({
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[250px] w-full overflow-hidden">
+      <div className="relative h-[350px] w-full overflow-hidden">
         <Carousel
           handleClick={handleClick}
           controls={controls}

@@ -88,7 +88,7 @@ export function QuartieriSection() {
 
       {/* Dialog per informazioni quartiere */}
       <Dialog open={!!selectedQuartiere} onOpenChange={closeDialog}>
-        <DialogContent className="w-[95vw] max-w-2xl h-[90vh] max-h-[90vh] p-0 mx-auto">
+        <DialogContent className="w-[95vw] max-w-2xl h-[85vh] max-h-[85vh] p-0 mx-auto overflow-hidden">
           <div className="flex flex-col h-full">
             <DialogHeader className="p-6 pb-4 border-b">
               <DialogTitle className="text-xl md:text-2xl font-bold">
@@ -97,7 +97,7 @@ export function QuartieriSection() {
             </DialogHeader>
             
             {selectedQuartiere && (
-              <div className="flex-1 overflow-y-auto p-6">
+              <div className="flex-1 overflow-y-auto overflow-x-hidden p-6" style={{WebkitOverflowScrolling: 'touch'}}>
                 <div className="space-y-6">
               {/* Immagine del quartiere */}
               <div className="w-full">

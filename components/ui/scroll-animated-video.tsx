@@ -397,9 +397,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
 
   return (
     <div ref={rootRef} className={["hsv-root", className].filter(Boolean).join(" ")} style={{ ...cssVars, ...style }}>
-      <div className="hsv-logo">
-        <img src="/calcio-storico-logo.jpeg" alt="Logo" />
-      </div>
+      
 
       {/* Headline/hero area */}
       <div className="hsv-container" ref={headlineRef}>
@@ -457,28 +455,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           position: relative;
         }
 
-        /* Added logo styling */
-        .hsv-logo {
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          width: 60px;
-          height: 60px;
-          z-index: 1000;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          transition: transform 0.2s ease;
-        }
-        .hsv-logo:hover {
-          transform: scale(1.05);
-        }
-        .hsv-logo img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
+
 
         @media (prefers-color-scheme: dark) {
           .hsv-root {
