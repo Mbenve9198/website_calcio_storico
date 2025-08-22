@@ -8,7 +8,7 @@ export function CalcioStoricoTimeline() {
       title: "Inizia Il Viaggio",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <p className="text-neutral-800 dark:text-neutral-200 text-base md:text-lg font-normal mb-8 leading-relaxed">
             Un'introduzione storica con supporti audio-visivi per immergerti subito nell'atmosfera del 1500.
           </p>
           <div className="w-full">
@@ -27,20 +27,20 @@ export function CalcioStoricoTimeline() {
       title: "L'Arte Della Bandiera",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <p className="text-neutral-800 dark:text-neutral-200 text-base md:text-lg font-normal mb-8 leading-relaxed">
             Visiterai il museo dei costumi del Corteo Storico e assisterai a una dimostrazione privata degli sbandieratori fiorentini.
           </p>
           <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🏛️ Museo dei Costumi del Corteo Storico
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🚩 Dimostrazione privata degli sbandieratori
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               👘 Costumi d'epoca originali
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🎭 Arte e tradizione fiorentina
             </div>
           </div>
@@ -60,20 +60,20 @@ export function CalcioStoricoTimeline() {
       title: "Nel Cuore Della Squadra",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <p className="text-neutral-800 dark:text-neutral-200 text-base md:text-lg font-normal mb-8 leading-relaxed">
             Varcherai le porte della sede di uno dei quattro storici quartieri, un luogo normalmente chiuso al pubblico, per respirare l'aria della competizione.
           </p>
           <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🏰 Accesso esclusivo alle sedi storiche
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🔒 Luoghi normalmente chiusi al pubblico
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               ⚔️ Atmosfera di competizione autentica
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🏛️ I quattro quartieri storici
             </div>
           </div>
@@ -93,26 +93,26 @@ export function CalcioStoricoTimeline() {
       title: "Il Calciante",
       content: (
         <div>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
+          <p className="text-neutral-800 dark:text-neutral-200 text-base md:text-lg font-normal mb-4 leading-relaxed">
             Il momento clou. In una palestra dedicata, con veri atleti in costume d'epoca, potrai scegliere se metterti in gioco in un vero allenamento o goderti lo spettacolo.
           </p>
-          <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+          <p className="text-neutral-800 dark:text-neutral-200 text-base md:text-lg font-normal mb-8 leading-relaxed">
             Un'emozione unica, tra sudore e gloria.
           </p>
           <div className="mb-8">
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               💪 Allenamento con veri calcianti
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               👕 Costumi d'epoca autentici
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🏟️ Palestra dedicata al Calcio Storico
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🔥 Emozione tra sudore e gloria
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+            <div className="flex gap-3 items-center text-neutral-700 dark:text-neutral-300 text-sm md:text-base mb-2">
               🎯 Scelta tra partecipazione attiva o spettatore
             </div>
           </div>
