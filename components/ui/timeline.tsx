@@ -34,42 +34,24 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full bg-[#f0f0f0] font-sans md:px-10"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 text-center">
-        <h1 className="timeline-title">
-          L&apos;Esperienza Immersiva - Il Tuo Viaggio da Calciante
-        </h1>
-        <h2 className="timeline-subtitle">
+        <div className="inline-block mb-8">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-800 
+              bg-gradient-to-r from-white to-gray-100 px-6 py-3 rounded-xl border-4 border-black
+              shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9),_12px_12px_12px_-3px_rgba(0,0,0,0.1)]
+              transform transition-transform hover:translate-x-1 hover:translate-y-1 mb-3 relative
+              before:absolute before:inset-0 before:bg-white/50 before:rounded-xl before:blur-sm before:-z-10">
+            L&apos;Esperienza Immersiva - Il Tuo Viaggio da Calciante
+          </h1>
+          <div className="h-2 bg-gradient-to-r from-red-600 via-blue-600 to-green-600 rounded-full" />
+        </div>
+        <p className="text-sm md:text-base font-bold text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Scopri la storia millenaria del Calcio Storico Fiorentino attraverso un&apos;esperienza unica che ti porterà dal 1500 fino ai giorni nostri.
-        </h2>
+        </p>
       </div>
-
-      <style jsx>{`
-        .timeline-title {
-          margin: 0 0 1.5rem 0;
-          font-size: clamp(30px, 7vw, 84px);
-          line-height: 0.95;
-          font-weight: 900;
-          letter-spacing: -0.03em;
-          text-wrap: balance;
-          color: var(--foreground);
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-          text-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .timeline-subtitle {
-          margin: 0 0 2rem 0;
-          font-size: clamp(14px, 2.5vw, 20px);
-          font-weight: 600;
-          letter-spacing: 0.02em;
-          color: #6b7280;
-          max-width: 800px;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.6;
-        }
-      `}</style>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
@@ -81,13 +63,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
+              <h3 className="hidden md:block text-lg md:pl-20 md:text-3xl font-black text-slate-800 
+                  bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg border-2 border-black
+                  shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] inline-block">
                 {item.title}
               </h3>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+              <h3 className="md:hidden block text-lg mb-4 text-left font-black text-slate-800 
+                  bg-white/80 backdrop-blur-sm px-3 py-2 rounded-lg border-2 border-black
+                  shadow-[3px_3px_0px_0px_rgba(0,0,0,0.9)] inline-block">
                 {item.title}
               </h3>
               {item.content}{" "}

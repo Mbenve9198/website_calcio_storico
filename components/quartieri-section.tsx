@@ -59,15 +59,22 @@ export function QuartieriSection() {
   }
 
   return (
-    <div className="w-full bg-white dark:bg-neutral-950 font-sans py-16 md:py-24 lg:py-32">
+    <div className="w-full bg-[#f0f0f0] font-sans py-16 md:py-24 lg:py-32">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 text-center mb-16">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-black dark:text-white leading-tight tracking-tight drop-shadow-lg">
-          I Quartieri del Calcio Storico
-        </h1>
-        <h2 className="text-sm md:text-base lg:text-lg font-semibold text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed tracking-wide">
+        <div className="inline-block mb-8">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-800 
+              bg-gradient-to-r from-white to-gray-100 px-6 py-3 rounded-xl border-4 border-black
+              shadow-[6px_6px_0px_0px_rgba(0,0,0,0.9),_12px_12px_12px_-3px_rgba(0,0,0,0.1)]
+              transform transition-transform hover:translate-x-1 hover:translate-y-1 mb-3 relative
+              before:absolute before:inset-0 before:bg-white/50 before:rounded-xl before:blur-sm before:-z-10">
+            I Quartieri del Calcio Storico
+          </h1>
+          <div className="h-2 bg-gradient-to-r from-red-600 via-blue-600 to-green-600 rounded-full" />
+        </div>
+        <p className="text-sm md:text-base font-bold text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Il torneo moderno vede sfidarsi i quattro quartieri storici di Firenze, ognuno con i propri colori e il proprio simbolo.
-        </h2>
+        </p>
       </div>
 
       {/* 3D Carousel */}
