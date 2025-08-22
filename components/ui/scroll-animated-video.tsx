@@ -411,7 +411,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         <div className="hsv-headline">
           <h1 className="hsv-title">
             <span className="text-black">Diventa Parte Della </span>
-            <span className="bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-800 bg-clip-text text-transparent font-black">
+            <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 bg-clip-text text-transparent font-black">
               Leggenda
             </span>
           </h1>
