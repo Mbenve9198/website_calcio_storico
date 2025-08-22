@@ -49,7 +49,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       <style jsx>{`
         .timeline-title {
           margin: 0 0 1.5rem 0;
-          font-size: clamp(36px, 8vw, 96px);
+          font-size: clamp(30px, 7vw, 84px);
           line-height: 0.95;
           font-weight: 900;
           letter-spacing: -0.03em;
@@ -60,10 +60,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         }
         .timeline-subtitle {
           margin: 0 0 2rem 0;
-          font-size: clamp(16px, 3vw, 24px);
+          font-size: clamp(14px, 2.5vw, 20px);
           font-weight: 600;
           letter-spacing: 0.02em;
-          color: var(--muted-foreground);
+          color: #6b7280;
           max-width: 800px;
           margin-left: auto;
           margin-right: auto;

@@ -64,10 +64,10 @@ export function QuartieriSection() {
     <div className="w-full bg-white dark:bg-neutral-950 font-sans py-16 md:py-24 lg:py-32">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 text-center mb-16">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-black dark:text-white leading-tight tracking-tight drop-shadow-lg">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-black dark:text-white leading-tight tracking-tight drop-shadow-lg">
           I Quartieri del Calcio Storico
         </h1>
-        <h2 className="text-base md:text-lg lg:text-xl font-semibold text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed tracking-wide">
+        <h2 className="text-sm md:text-base lg:text-lg font-semibold text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed tracking-wide">
           Il torneo moderno vede sfidarsi i quattro quartieri storici di Firenze, ognuno con i propri colori e il proprio simbolo.
         </h2>
       </div>
@@ -113,6 +113,11 @@ export function QuartieriSection() {
                   width={600}
                   height={300}
                   className="rounded-lg object-cover w-full h-48 md:h-64 shadow-lg"
+                  unoptimized
+                  onError={(e) => {
+                    console.log('Errore caricamento immagine:', selectedQuartiere.immagine);
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
               </div>
 
