@@ -436,7 +436,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         /* System theme: define light defaults, override in dark */
         .hsv-root {
           /* Light */
-          --bg: hsl(var(--background));
+          --bg: transparent;
           --text: hsl(var(--foreground));
           --muted: #6b7280;
           --muted-bg: rgba(15,17,21,0.06);
@@ -448,7 +448,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           --shadow: 0 10px 30px rgba(0,0,0,0.08);
 
           color-scheme: light dark;
-          background: var(--bg);
+          background: transparent;
           color: var(--text);
           font-family: Inter, Inter var, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
           overflow-x: clip;
@@ -459,7 +459,7 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
 
         @media (prefers-color-scheme: dark) {
           .hsv-root {
-            --bg: #0b0c10;
+            --bg: transparent;
             --text: #e5e7eb;
             --muted: #9ca3af;
             --muted-bg: rgba(229,231,235,0.08);

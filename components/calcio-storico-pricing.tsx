@@ -51,7 +51,7 @@ export function CalcioStoricoPricing() {
             <PricingContainer
                 title="Vivi la Leggenda"
                 plans={CALCIO_STORICO_PLANS}
-                className="bg-gradient-to-br from-red-50 via-blue-50 to-green-50"
+                className="bg-transparent"
             />
         </div>
     );
