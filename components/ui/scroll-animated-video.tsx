@@ -567,7 +567,10 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           letter-spacing: 0.06em;
           text-transform: uppercase;
           color: #1e293b;
-          text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+          text-shadow: 
+            0 2px 4px rgba(0,0,0,0.3),
+            0 4px 8px rgba(0,0,0,0.2),
+            0 1px 0px rgba(255,255,255,0.8);
         }
         .hsv-meta {
           display: inline-flex;
