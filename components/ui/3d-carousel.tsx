@@ -75,7 +75,7 @@ const Carousel = memo(
     isCarouselActive: boolean
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
-    const cylinderWidth = isScreenSizeSm ? 800 : 1200
+    const cylinderWidth = isScreenSizeSm ? 560 : 840
     const faceCount = cards.length
     const faceWidth = cylinderWidth / faceCount
     const radius = cylinderWidth / (2 * Math.PI)
@@ -250,7 +250,7 @@ function ThreeDPhotoCarousel({
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[350px] w-full overflow-hidden">
+      <div className="relative h-[250px] w-full overflow-hidden">
         <Carousel
           handleClick={handleClick}
           controls={controls}
