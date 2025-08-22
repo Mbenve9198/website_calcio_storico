@@ -47,7 +47,7 @@ const CALCIO_STORICO_PLANS: PricingPlan[] = [
 
 export function CalcioStoricoPricing() {
     return (
-        <div className="w-full py-16 md:py-24 lg:py-32">
+        <div className="w-full py-16 md:py-24 lg:py-32 px-6 sm:px-8 lg:px-12">
             <PricingContainer
                 title="Vivi la Leggenda"
                 plans={CALCIO_STORICO_PLANS}

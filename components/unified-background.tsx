@@ -45,8 +45,8 @@ export function UnifiedBackground({ children, className = "" }: UnifiedBackgroun
       {/* Gradient overlay per profondità */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5" />
       
-      {/* Contenuto */}
-      <div className="relative z-10">
+      {/* Container principale con max-width elegante per desktop */}
+      <div className="relative z-10 max-w-[1400px] mx-auto">
         {children}
       </div>
     </div>

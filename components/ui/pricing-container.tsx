@@ -216,7 +216,7 @@ export const PricingContainer = ({ title = "Pricing Plans", plans, className = "
         <div className={`min-h-screen bg-transparent p-4 sm:p-6 lg:p-8 relative overflow-hidden rounded-[12px] ${className}`}>
             <PricingHeader title={title} />
 
-            <div className="w-[100%] max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+            <div className="w-[100%] max-w-3xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
                 {plans.map((plan, index) => (
                     <PricingCard
                         key={plan.name}

@@ -58,9 +58,9 @@ export function QuartieriSection() {
   }
 
   return (
-    <div className="w-full bg-transparent font-sans py-16 md:py-24 lg:py-32">
+    <div className="w-full bg-transparent font-sans py-16 md:py-24 lg:py-32 px-6 sm:px-8 lg:px-12">
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10 text-center mb-16">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 lg:px-10 text-center mb-16">
         <div className="inline-block mb-8">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-800 
               bg-gradient-to-r from-white to-gray-100 px-6 py-3 rounded-xl border-4 border-black
@@ -71,13 +71,13 @@ export function QuartieriSection() {
           </h1>
           <div className="h-2 bg-gradient-to-r from-red-600 via-blue-600 to-green-600 rounded-full" />
         </div>
-        <p className="text-sm md:text-base font-bold text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base font-bold text-gray-600 max-w-2xl mx-auto leading-relaxed">
           Il torneo moderno vede sfidarsi i quattro quartieri storici di Firenze, ognuno con i propri colori e il proprio simbolo.
         </p>
       </div>
 
       {/* 3D Carousel */}
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <ThreeDPhotoCarousel 
           cards={stemmi}
           quartieri={quartieri}
@@ -87,7 +87,7 @@ export function QuartieriSection() {
 
       {/* Istruzioni per l'utente */}
       <div className="text-center mt-8 px-4">
-        <p className="text-neutral-600 dark:text-neutral-400 text-sm md:text-base">
+        <p className="text-neutral-600 dark:text-neutral-400 text-sm md:text-base max-w-xl mx-auto">
           Il carosello ruota automaticamente. Trascina per controllarlo manualmente e clicca su uno stemma per scoprire la storia del quartiere.
         </p>
       </div>

@@ -130,7 +130,7 @@ export function CalcioStoricoTimeline() {
     },
   ];
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full px-6 sm:px-8 lg:px-12">
       <Timeline data={data} />
     </div>
   );

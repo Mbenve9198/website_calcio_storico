@@ -477,6 +477,8 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           display: grid;
           place-items: center;
           padding: clamp(16px, 3vw, 40px);
+          padding-left: clamp(24px, 6vw, 48px);
+          padding-right: clamp(24px, 6vw, 48px);
           perspective: 900px;
         }
 

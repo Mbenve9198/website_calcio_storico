@@ -34,10 +34,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-transparent font-sans md:px-10"
+      className="w-full bg-transparent font-sans"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 text-center">
+      <div className="max-w-5xl mx-auto py-20 px-4 md:px-8 lg:px-10 text-center">
         <div className="inline-block mb-8">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-800 
               bg-gradient-to-r from-white to-gray-100 px-6 py-3 rounded-xl border-4 border-black
@@ -48,12 +48,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           </h1>
           <div className="h-2 bg-gradient-to-r from-red-600 via-blue-600 to-green-600 rounded-full" />
         </div>
-        <p className="text-sm md:text-base font-bold text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base font-bold text-gray-600 max-w-2xl mx-auto leading-relaxed">
           Scopri la storia millenaria del Calcio Storico Fiorentino attraverso un&apos;esperienza unica che ti porterà dal 1500 fino ai giorni nostri.
         </p>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-5xl mx-auto pb-20">
         {data.map((item, index) => (
           <div
             key={index}
