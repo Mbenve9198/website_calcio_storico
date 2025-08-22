@@ -509,19 +509,14 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           background-repeat: no-repeat;
           opacity: 0.4;
           z-index: 1;
-          mask: 
-            linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%),
-            linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-          -webkit-mask: 
-            linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%),
-            linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-          mask-composite: intersect;
-          -webkit-mask-composite: source-in;
+          mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
         }
         
         @media (max-width: 768px) {
           .hsv-container::before {
-            background-position: center top;
+            background-image: url('/header_background_mobile.jpg');
+            background-position: center;
             background-size: cover;
           }
         }
