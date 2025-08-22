@@ -1,11 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { ThreeDPhotoCarousel, QuartiereData } from "@/components/ui/3d-carousel"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { X } from "lucide-react"
 
 export function QuartieriSection() {
   const [selectedQuartiere, setSelectedQuartiere] = useState<QuartiereData | null>(null)
@@ -90,33 +88,29 @@ export function QuartieriSection() {
 
       {/* Dialog per informazioni quartiere */}
       <Dialog open={!!selectedQuartiere} onOpenChange={closeDialog}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4 md:mx-auto">
-          <DialogHeader className="relative">
-            <button
-              onClick={closeDialog}
-              className="absolute right-0 top-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              <X size={20} />
-            </button>
-            <DialogTitle className="text-2xl font-bold pr-10">
-              {selectedQuartiere?.nome}
-            </DialogTitle>
-          </DialogHeader>
-          
-          {selectedQuartiere && (
-            <div className="space-y-6">
+        <DialogContent className="w-[95vw] max-w-2xl h-[90vh] max-h-[90vh] p-0 mx-auto">
+          <div className="flex flex-col h-full">
+            <DialogHeader className="p-6 pb-4 border-b">
+              <DialogTitle className="text-xl md:text-2xl font-bold">
+                {selectedQuartiere?.nome}
+              </DialogTitle>
+            </DialogHeader>
+            
+            {selectedQuartiere && (
+              <div className="flex-1 overflow-y-auto p-6">
+                <div className="space-y-6">
               {/* Immagine del quartiere */}
               <div className="w-full">
-                <Image
+                <img
                   src={selectedQuartiere.immagine}
                   alt={selectedQuartiere.nome}
-                  width={600}
-                  height={300}
                   className="rounded-lg object-cover w-full h-48 md:h-64 shadow-lg"
-                  unoptimized
                   onError={(e) => {
-                    console.log('Errore caricamento immagine:', selectedQuartiere.immagine);
+                    console.error('Errore caricamento immagine:', selectedQuartiere.immagine);
                     e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => {
+                    console.log('Immagine caricata con successo:', selectedQuartiere.immagine);
                   }}
                 />
               </div>
@@ -152,8 +146,10 @@ export function QuartieriSection() {
                   {selectedQuartiere.storia}
                 </p>
               </div>
-            </div>
-          )}
+                </div>
+              </div>
+            )}
+          </div>
         </DialogContent>
       </Dialog>
 

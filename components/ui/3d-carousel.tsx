@@ -78,7 +78,7 @@ const Carousel = memo(
     const cylinderWidth = isScreenSizeSm ? 560 : 840
     const faceCount = cards.length
     const faceWidth = cylinderWidth / faceCount
-    const radius = cylinderWidth / (2 * Math.PI)
+    const radius = (cylinderWidth / (2 * Math.PI)) * 0.6
     const rotation = useMotionValue(0)
     const transform = useTransform(
       rotation,
