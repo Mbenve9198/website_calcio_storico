@@ -480,20 +480,6 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           padding-left: clamp(24px, 6vw, 48px);
           padding-right: clamp(24px, 6vw, 48px);
           perspective: 900px;
-          position: relative;
-        }
-        .hsv-container::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background-image: url('/L\'ALLENAMENTO DEL CALCIANTE.jpeg');
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          opacity: 0.15;
-          z-index: -1;
-          mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0) 100%);
-          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0) 100%);
         }
 
         .hsv-headline { 
