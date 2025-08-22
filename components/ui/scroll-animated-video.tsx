@@ -524,15 +524,6 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           position: relative;
           z-index: 10;
         }
-        .hsv-headline::before {
-          content: '';
-          position: absolute;
-          inset: -20px;
-          background: rgba(248, 249, 250, 0.15);
-          backdrop-filter: blur(3px);
-          border-radius: 20px;
-          z-index: -1;
-        }
         .hsv-headline > * {
           transform-style: preserve-3d;
           backface-visibility: hidden;
