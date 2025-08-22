@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { ThreeDPhotoCarousel, QuartiereData } from "@/components/ui/3d-carousel"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
@@ -15,28 +16,32 @@ export function QuartieriSection() {
       colore: "Azzurro",
       descrizione: "Gli Azzurri rappresentano il quartiere di Santa Croce, la cui piazza omonima è il campo di gioco della finale. Il loro stemma è caratterizzato da una croce gialla su sfondo azzurro.",
       simbolo: "Croce gialla su sfondo azzurro",
-      storia: "Il quartiere di Santa Croce è legato all'omonima basilica francescana, una delle più importanti di Firenze. La piazza antistante è tradizionalmente il teatro della finale del Calcio Storico, rendendo questo quartiere il 'padrone di casa' dell'evento più importante dell'anno."
+      storia: "Il quartiere di Santa Croce è legato all'omonima basilica francescana, una delle più importanti di Firenze. La piazza antistante è tradizionalmente il teatro della finale del Calcio Storico, rendendo questo quartiere il 'padrone di casa' dell'evento più importante dell'anno.",
+      immagine: "/Santa-Croce-.jpg"
     },
     {
       nome: "Bianchi di Santo Spirito",
       colore: "Bianco", 
       descrizione: "I Bianchi scendono in campo per il quartiere di Santo Spirito. Il loro simbolo è una colomba bianca, rappresentazione dello Spirito Santo, con raggi dorati su sfondo bianco.",
       simbolo: "Colomba bianca con raggi dorati",
-      storia: "Santo Spirito rappresenta l'Oltrarno fiorentino, la zona 'oltre l'Arno' che mantiene ancora oggi un carattere più popolare e autentico. La basilica di Santo Spirito, progettata da Brunelleschi, è il cuore pulsante di questo quartiere ricco di tradizioni artigianali."
+      storia: "Santo Spirito rappresenta l'Oltrarno fiorentino, la zona 'oltre l'Arno' che mantiene ancora oggi un carattere più popolare e autentico. La basilica di Santo Spirito, progettata da Brunelleschi, è il cuore pulsante di questo quartiere ricco di tradizioni artigianali.",
+      immagine: "/santospirito.jpg"
     },
     {
       nome: "Rossi di Santa Maria Novella", 
       colore: "Rosso",
       descrizione: "I Rossi combattono per il quartiere di Santa Maria Novella. Sono caratterizzati dal colore rosso e il loro stemma è un sole dorato con volto umano su campo rosso.",
       simbolo: "Sole dorato con volto umano",
-      storia: "Santa Maria Novella è il quartiere che accoglie i viaggiatori che arrivano a Firenze, essendo sede della stazione ferroviaria principale. La basilica domenicana che dà il nome al quartiere è famosa per la sua facciata in marmi policromi e per i capolavori artistici che custodisce."
+      storia: "Santa Maria Novella è il quartiere che accoglie i viaggiatori che arrivano a Firenze, essendo sede della stazione ferroviaria principale. La basilica domenicana che dà il nome al quartiere è famosa per la sua facciata in marmi policromi e per i capolavori artistici che custodisce.",
+      immagine: "/santamarianovella.jpg"
     },
     {
       nome: "Verdi di San Giovanni",
       colore: "Verde",
       descrizione: "I Verdi rappresentano il quartiere di San Giovanni. Il simbolo che li identifica è una raffigurazione del Battistero di San Giovanni su sfondo verde.",
       simbolo: "Battistero di San Giovanni",
-      storia: "San Giovanni è il cuore religioso e civile di Firenze, sede del Duomo, del Battistero e del Palazzo Arcivescovile. Il Battistero di San Giovanni, con le sue celebri porte del Paradiso del Ghiberti, è uno dei monumenti più amati dai fiorentini e simbolo di identità cittadina."
+      storia: "San Giovanni è il cuore religioso e civile di Firenze, sede del Duomo, del Battistero e del Palazzo Arcivescovile. Il Battistero di San Giovanni, con le sue celebri porte del Paradiso del Ghiberti, è uno dei monumenti più amati dai fiorentini e simbolo di identità cittadina.",
+      immagine: "/sangiovanni.jpeg"
     }
   ]
 
@@ -100,6 +105,17 @@ export function QuartieriSection() {
           
           {selectedQuartiere && (
             <div className="space-y-6">
+              {/* Immagine del quartiere */}
+              <div className="w-full">
+                <Image
+                  src={selectedQuartiere.immagine}
+                  alt={selectedQuartiere.nome}
+                  width={600}
+                  height={300}
+                  className="rounded-lg object-cover w-full h-48 md:h-64 shadow-lg"
+                />
+              </div>
+
               <div className="flex items-center gap-3">
                 <Badge 
                   variant="secondary" 

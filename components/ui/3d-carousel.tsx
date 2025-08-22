@@ -75,7 +75,7 @@ const Carousel = memo(
     isCarouselActive: boolean
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
-    const cylinderWidth = isScreenSizeSm ? 1100 : 1800
+    const cylinderWidth = isScreenSizeSm ? 800 : 1200
     const faceCount = cards.length
     const faceWidth = cylinderWidth / faceCount
     const radius = cylinderWidth / (2 * Math.PI)
@@ -181,6 +181,7 @@ export interface QuartiereData {
   descrizione: string
   simbolo: string
   storia: string
+  immagine: string
 }
 
 function ThreeDPhotoCarousel({ 
@@ -249,7 +250,7 @@ function ThreeDPhotoCarousel({
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[500px] w-full overflow-hidden">
+      <div className="relative h-[350px] w-full overflow-hidden">
         <Carousel
           handleClick={handleClick}
           controls={controls}
