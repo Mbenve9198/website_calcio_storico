@@ -480,6 +480,20 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           padding-left: clamp(24px, 6vw, 48px);
           padding-right: clamp(24px, 6vw, 48px);
           perspective: 900px;
+          position: relative;
+        }
+        .hsv-container::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url('/L\'ALLENAMENTO DEL CALCIANTE.jpeg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0.15;
+          z-index: -1;
+          mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0) 100%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0) 100%);
         }
 
         .hsv-headline { 
@@ -550,39 +564,26 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         }
         .hsv-cta-button {
           position: relative;
-          background: white;
-          color: black;
-          border: none;
+          background: #dc2626;
+          color: white;
+          border: 2px solid black;
           padding: 1.2rem 3rem;
           font-size: 1.25rem;
-          font-weight: 700;
-          border-radius: 16px;
+          font-weight: 900;
+          border-radius: 12px;
           cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 
-            0 0 0 1px rgba(255,255,255,0.1),
-            0 8px 32px rgba(124, 58, 237, 0.3),
-            0 4px 16px rgba(34, 211, 238, 0.2);
-        }
-        .hsv-cta-button::before {
-          content: '';
-          position: absolute;
-          inset: -2px;
-          background: linear-gradient(135deg, var(--accent), var(--accent-2));
-          border-radius: 18px;
-          z-index: -1;
-          opacity: 0;
-          transition: opacity 0.3s ease;
+          transition: all 0.2s ease;
+          box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.9);
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
         }
         .hsv-cta-button:hover {
-          transform: translateY(-2px);
-          box-shadow: 
-            0 0 0 1px rgba(255,255,255,0.2),
-            0 12px 48px rgba(124, 58, 237, 0.4),
-            0 6px 24px rgba(34, 211, 238, 0.3);
+          transform: scale(1.02) translateY(-2px);
+          box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.9);
         }
-        .hsv-cta-button:hover::before {
-          opacity: 1;
+        .hsv-cta-button:active {
+          transform: scale(0.95);
+          box-shadow: 2px 2px 0px 0px rgba(0,0,0,0.9);
         }
 
         .hsv-scroll { position: relative; }
