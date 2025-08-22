@@ -59,8 +59,7 @@ export function useMediaQuery(
 }
 
 const duration = 0.15
-const transition = { duration, ease: [0.32, 0.72, 0, 1], filter: "blur(4px)" }
-const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] }
+const transition = { duration }
 
 const Carousel = memo(
   ({
@@ -75,36 +74,36 @@ const Carousel = memo(
     isCarouselActive: boolean
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
-    const cylinderWidth = isScreenSizeSm ? 560 : 840
+    const cylinderWidth = isScreenSizeSm ? 1100 : 1800
     const faceCount = cards.length
     const faceWidth = cylinderWidth / faceCount
-    const radius = (cylinderWidth / (2 * Math.PI)) * 0.6
+    const radius = cylinderWidth / (2 * Math.PI)
     const rotation = useMotionValue(0)
     const transform = useTransform(
       rotation,
       (value) => `rotate3d(0, 1, 0, ${value}deg)`
     )
-    const [isDragging, setIsDragging] = useState(false)
 
     // Auto-scroll effect
     useEffect(() => {
       let animationId: number
       
       const autoRotate = () => {
-        if (!isDragging && isCarouselActive) {
-          rotation.set(rotation.get() + 0.2) // Velocità lenta auto-scroll
-        }
+        if (!isCarouselActive) return
+        rotation.set(rotation.get() + 0.2) // Velocità lenta auto-scroll
         animationId = requestAnimationFrame(autoRotate)
       }
       
-      animationId = requestAnimationFrame(autoRotate)
+      if (isCarouselActive) {
+        animationId = requestAnimationFrame(autoRotate)
+      }
       
       return () => {
         if (animationId) {
           cancelAnimationFrame(animationId)
         }
       }
-    }, [isDragging, isCarouselActive, rotation])
+    }, [isCarouselActive, rotation])
 
     return (
       <div
@@ -124,25 +123,22 @@ const Carousel = memo(
             width: cylinderWidth,
             transformStyle: "preserve-3d",
           }}
-          onDragStart={() => setIsDragging(true)}
           onDrag={(_, info) =>
             isCarouselActive &&
             rotation.set(rotation.get() + info.offset.x * 0.05)
           }
-          onDragEnd={(_, info) => {
-            setIsDragging(false)
-            if (isCarouselActive) {
-              controls.start({
-                rotateY: rotation.get() + info.velocity.x * 0.05,
-                transition: {
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 30,
-                  mass: 0.1,
-                },
-              })
-            }
-          }}
+          onDragEnd={(_, info) =>
+            isCarouselActive &&
+            controls.start({
+              rotateY: rotation.get() + info.velocity.x * 0.05,
+              transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 30,
+                mass: 0.1,
+              },
+            })
+          }
           animate={controls}
         >
           {cards.map((imgUrl, i) => (
@@ -193,7 +189,6 @@ function ThreeDPhotoCarousel({
   quartieri: QuartiereData[]
   onQuartiereClick?: (quartiere: QuartiereData) => void
 }) {
-  const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const controls = useAnimation()
 
@@ -210,47 +205,16 @@ function ThreeDPhotoCarousel({
     if (onQuartiereClick && quartieri[index]) {
       onQuartiereClick(quartieri[index])
     }
-  }
-
-  const handleClose = () => {
-    setActiveImg(null)
-    setIsCarouselActive(true)
+    
+    // Riattiva il carosello dopo 1 secondo
+    setTimeout(() => {
+      setIsCarouselActive(true)
+    }, 1000)
   }
 
   return (
     <motion.div layout className="relative">
-      <AnimatePresence mode="sync">
-        {activeImg && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
-            layoutId={`img-container-${activeImg}`}
-            layout="position"
-            onClick={handleClose}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 m-5 md:m-36 lg:mx-[19rem] rounded-3xl"
-            style={{ willChange: "opacity" }}
-            transition={transitionOverlay}
-          >
-            <motion.img
-              layoutId={`img-${activeImg}`}
-              src={activeImg}
-              className="max-w-full max-h-full rounded-lg shadow-lg"
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
-              transition={{
-                delay: 0.5,
-                duration: 0.5,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              style={{
-                willChange: "transform",
-              }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <div className="relative h-[175px] w-full overflow-hidden">
+      <div className="relative h-[350px] w-full overflow-hidden">
         <Carousel
           handleClick={handleClick}
           controls={controls}
@@ -262,4 +226,4 @@ function ThreeDPhotoCarousel({
   )
 }
 
-export { ThreeDPhotoCarousel }; 
+export { ThreeDPhotoCarousel } 
