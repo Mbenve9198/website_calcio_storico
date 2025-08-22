@@ -512,6 +512,13 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
           -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
         }
+        
+        @media (max-width: 768px) {
+          .hsv-container::before {
+            background-position: center top;
+            background-size: cover;
+          }
+        }
         .hsv-container::after {
           content: '';
           position: absolute;
