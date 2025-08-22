@@ -502,19 +502,19 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
-          opacity: 0.25;
+          opacity: 0.4;
           z-index: 1;
-          mask: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 90%);
-          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 90%);
+          mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 90%);
         }
         .hsv-container::after {
           content: '';
           position: absolute;
           inset: 0;
-          background: rgba(0, 0, 0, 0.15);
+          background: rgba(0, 0, 0, 0.35);
           z-index: 0;
-          mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 90%);
-          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 90%);
+          mask: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 90%);
+          -webkit-mask: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 90%);
         }
 
         .hsv-headline { 
