@@ -1,5 +1,6 @@
 import HeroScrollVideo from "@/components/ui/scroll-animated-video"
 import { CalcioStoricoTimeline } from "@/components/calcio-storico-timeline"
+import { QuartieriSection } from "@/components/quartieri-section"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         }}
       />
       <CalcioStoricoTimeline />
+      <QuartieriSection />
     </main>
   )
 }
