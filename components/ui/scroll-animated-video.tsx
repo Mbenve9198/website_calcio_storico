@@ -544,10 +544,11 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         .hsv-subtitle {
           margin: 0 0 1.25rem 0;
           font-size: clamp(18px, 3.5vw, 28px);
-          font-weight: 600;
+          font-weight: 900;
           letter-spacing: 0.06em;
           text-transform: uppercase;
-          color: var(--muted);
+          color: #1e293b;
+          text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
         .hsv-meta {
           display: inline-flex;
@@ -587,8 +588,8 @@ export const HeroScrollVideo: React.FC<HeroScrollVideoProps> = ({
         }
         .hsv-cta-button {
           position: relative;
-          background: #dc2626;
-          color: white;
+          background: white;
+          color: black;
           border: 2px solid black;
           padding: 1.2rem 3rem;
           font-size: 1.25rem;
