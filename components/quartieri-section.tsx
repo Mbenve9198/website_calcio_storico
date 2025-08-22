@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { ThreeDPhotoCarousel, QuartiereData } from "@/components/ui/3d-carousel"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
+import { QuartiereDialog } from "@/components/quartiere-dialog"
 
 export function QuartieriSection() {
   const [selectedQuartiere, setSelectedQuartiere] = useState<QuartiereData | null>(null)
@@ -93,72 +92,12 @@ export function QuartieriSection() {
         </p>
       </div>
 
-      {/* Dialog per informazioni quartiere */}
-      <Dialog open={!!selectedQuartiere} onOpenChange={closeDialog}>
-        <DialogContent className="w-[95vw] max-w-2xl h-[85vh] max-h-[85vh] p-0 mx-auto overflow-hidden">
-          <div className="flex flex-col h-full">
-            <DialogHeader className="p-6 pb-4 border-b">
-              <DialogTitle className="text-xl md:text-2xl font-bold">
-                {selectedQuartiere?.nome}
-              </DialogTitle>
-            </DialogHeader>
-            
-            {selectedQuartiere && (
-              <div className="flex-1 overflow-y-auto overflow-x-hidden p-6" style={{WebkitOverflowScrolling: 'touch'}}>
-                <div className="space-y-6">
-              {/* Immagine del quartiere */}
-              <div className="w-full">
-                <img
-                  src={selectedQuartiere.immagine}
-                  alt={selectedQuartiere.nome}
-                  className="rounded-lg object-cover w-full h-48 md:h-64 shadow-lg"
-                  onError={(e) => {
-                    console.error('Errore caricamento immagine:', selectedQuartiere.immagine);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={() => {
-                    console.log('Immagine caricata con successo:', selectedQuartiere.immagine);
-                  }}
-                />
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Badge 
-                  variant="secondary" 
-                  className={`
-                    px-3 py-1 text-white font-medium
-                    ${selectedQuartiere.nome.includes('Azzurri') ? 'bg-blue-500' : ''}
-                    ${selectedQuartiere.nome.includes('Bianchi') ? 'bg-gray-500' : ''}
-                    ${selectedQuartiere.nome.includes('Rossi') ? 'bg-red-500' : ''}
-                    ${selectedQuartiere.nome.includes('Verdi') ? 'bg-green-500' : ''}
-                  `}
-                >
-                  Colore: {selectedQuartiere.colore}
-                </Badge>
-                <span className="text-sm text-gray-600 dark:text-gray-400">
-                  {selectedQuartiere.simbolo}
-                </span>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Descrizione</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {selectedQuartiere.descrizione}
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Storia del Quartiere</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {selectedQuartiere.storia}
-                </p>
-              </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
+      {/* Nuovo Dialog Quartiere */}
+      <QuartiereDialog 
+        quartiere={selectedQuartiere}
+        isOpen={!!selectedQuartiere}
+        onClose={closeDialog}
+      />
 
 
     </div>
