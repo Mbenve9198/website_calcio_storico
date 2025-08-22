@@ -37,14 +37,39 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
+      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 text-center">
+        <h1 className="timeline-title">
           L&apos;Esperienza Immersiva - Il Tuo Viaggio da Calciante
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+        </h1>
+        <h2 className="timeline-subtitle">
           Scopri la storia millenaria del Calcio Storico Fiorentino attraverso un&apos;esperienza unica che ti porterà dal 1500 fino ai giorni nostri.
-        </p>
+        </h2>
       </div>
+
+      <style jsx>{`
+        .timeline-title {
+          margin: 0 0 1.5rem 0;
+          font-size: clamp(36px, 8vw, 96px);
+          line-height: 0.95;
+          font-weight: 900;
+          letter-spacing: -0.03em;
+          text-wrap: balance;
+          color: var(--foreground);
+          filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+          text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .timeline-subtitle {
+          margin: 0 0 2rem 0;
+          font-size: clamp(16px, 3vw, 24px);
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          color: var(--muted-foreground);
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.6;
+        }
+      `}</style>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
